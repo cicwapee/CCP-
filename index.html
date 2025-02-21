@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Царь горы</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        .container { display: flex; justify-content: center; gap: 20px; margin-top: 50px; }
+        .image { width: 300px; height: 300px; cursor: pointer; border: 5px solid transparent; }
+        .image:hover { border-color: gold; }
+    </style>
+</head>
+<body>
+    <h1>Выберите победителя!</h1>
+    <div class="container">
+        <img class="image" id="img1" onclick="choose(0)" src="" alt="Картинка 1">
+        <img class="image" id="img2" onclick="choose(1)" src="" alt="Картинка 2">
+    </div>
+    <script>
+        let images = [
+            "https://i.pinimg.com/736x/29/07/45/290745c0f4e5d54ad0c99dbfab7f9fd0.jpg", 
+            "https://i.pinimg.com/736x/0c/25/43/0c2543ad5eea0dbb4aee5e60c5f6944d.jpg", 
+            "https://i.pinimg.com/736x/b8/f2/1d/b8f21dd8d9901086e19697f6d2d5a24f.jpg", 
+            "https://i.pinimg.com/736x/5c/fc/60/5cfc605ad4bf0a5d076886ffc8d49c7f.jpg", 
+            "https://i.pinimg.com/736x/c3/9c/7f/c39c7f59ebd2f113331336a016750121.jpg"
+        ];
+        let currentChampion = images.splice(Math.floor(Math.random() * images.length), 1)[0];
+        
+        function nextChallenger() {
+            if (images.length === 0) {
+                document.body.innerHTML = `<h1>best thing!</h1><img src="${currentChampion}" width="400" height="400">`;
+                return;
+            }
+            let challenger = images.splice(Math.floor(Math.random() * images.length), 1)[0];
+            document.getElementById("img1").src = currentChampion;
+            document.getElementById("img2").src = challenger;
+        }
+        
+        function choose(winner) {
+            currentChampion = document.getElementById(winner === 1 ? "img2" : "img1").src;
+            nextChallenger();
+        }
+        
+        nextChallenger();
+    </script>
+</body>
+</html>
