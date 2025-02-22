@@ -4,73 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Царь горы</title>
-    <style>
-        body { 
-            text-align: center; 
-            font-family: Arial, sans-serif; 
-            background-color: #2c2c2c; 
-            color: white;
-        }
-        .container { 
-            display: flex; 
-            justify-content: center; 
-            gap: 20px; 
-            margin-top: 50px; 
-        }
-        .image { 
-            width: 300px; 
-            height: 300px; 
-            cursor: pointer; 
-            border: 5px solid transparent; 
-            transition: transform 0.3s ease, border-color 0.3s ease, opacity 0.5s ease;
-        }
-        .image:hover { 
-            border-color: gold; 
-            transform: scale(1.05);
-        }
-        .fade-out {
-            opacity: 0;
-        }
-    </style>
+    <link href="style.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
+    <div class="round-info" id="round">Раунд 1</div>
     <h1>Выберите победителя!</h1>
     <div class="container">
-        <img class="image" id="img1" onclick="choose(0)" src="" alt="Картинка 1">
-        <img class="image" id="img2" onclick="choose(1)" src="" alt="Картинка 2">
+        <div class="images">
+            <div class="image-container">
+                <div class="image-title" id="title1">Защитник трона</div>
+                <img class="image" id="img1" onclick="choose(0)" src="" alt="Картинка 1">
+            </div>
+            <div class="image-container">
+                <div class="image-title" id="title2">Претендент</div>
+                <img class="image" id="img2" onclick="choose(1)" src="" alt="Картинка 2">
+            </div>
+        </div>
     </div>
+
     <script>
         let images = [
-            "https://i.pinimg.com/736x/c3/9c/7f/c39c7f59ebd2f113331336a016750121.jpg", 
-            "https://i.pinimg.com/736x/24/8b/29/248b29ae50a2beae3d903c6046a086c9.jpg", 
-            "https://i.pinimg.com/736x/fa/0a/d0/fa0ad0b66b07b72e0c361fcaa8ae4d8b.jpg", 
-            "https://i.pinimg.com/736x/47/e8/d7/47e8d7919fe3fddea9fca4c918ec4813.jpg", 
-            "https://i.pinimg.com/736x/0c/25/43/0c2543ad5eea0dbb4aee5e60c5f6944d.jpg"
+            { src: "https://i.pinimg.com/736x/c3/9c/7f/c39c7f59ebd2f113331336a016750121.jpg", title: "Лесной воин" },
+            { src: "https://i.pinimg.com/736x/24/8b/29/248b29ae50a2beae3d903c6046a086c9.jpg", title: "Огненный зверь" },
+            { src: "https://i.pinimg.com/736x/fa/0a/d0/fa0ad0b66b07b72e0c361fcaa8ae4d8b.jpg", title: "Ледяной страж" },
+            { src: "https://i.pinimg.com/736x/47/e8/d7/47e8d7919fe3fddea9fca4c918ec4813.jpg", title: "Грозовой гигант" },
+            { src: "https://i.pinimg.com/736x/0c/25/43/0c2543ad5eea0dbb4aee5e60c5f6944d.jpg", title: "Теневой хищник" }
         ];
+
         let currentChampion = images.splice(Math.floor(Math.random() * images.length), 1)[0];
-        
+        let round = 1;
+
         function nextChallenger() {
             if (images.length === 0) {
-                document.body.innerHTML = `<h1>Царь горы!</h1><img src="${currentChampion}" width="400" height="400">`;
+                document.body.innerHTML = `<div class='winner'>
+                                            <h1>Царь горы!</h1>
+                                            <img src="${currentChampion.src}" alt="Победитель" style="width: 500px; height: 500px; transition: all 0.3s ease;">
+                                            </div>`;
+                // Добавляем конфетти
+                confetti({
+                    particleCount: 100,
+                    spread: 100,
+                    origin: { y: 0.6 }
+                });
                 return;
             }
             let challenger = images.splice(Math.floor(Math.random() * images.length), 1)[0];
-            document.getElementById("img1").src = currentChampion;
-            document.getElementById("img2").src = challenger;
+            document.getElementById("img1").src = currentChampion.src;
+            document.getElementById("img2").src = challenger.src;
+            document.getElementById("title1").textContent = currentChampion.title;
+            document.getElementById("title2").textContent = challenger.title;
+            document.getElementById("round").textContent = `Раунд ${round}`;
+            round++;
         }
-        
+
         function choose(winner) {
             let chosen = document.getElementById(winner === 1 ? "img2" : "img1");
             let loser = document.getElementById(winner === 1 ? "img1" : "img2");
             
             loser.classList.add("fade-out");
             setTimeout(() => {
-                currentChampion = chosen.src;
+                currentChampion = { src: chosen.src, title: document.getElementById(winner === 1 ? "title2" : "title1").textContent };
                 loser.classList.remove("fade-out");
                 nextChallenger();
             }, 500);
         }
-        
+
         nextChallenger();
     </script>
 </body>
