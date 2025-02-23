@@ -35,13 +35,6 @@
     </style>
 </head>
 <body>
-    <div class="back-container">
-        <div class="back-button" onclick="history.back()">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M15 18l-6-6 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </div>
-        <div class="back-text">Шаг назад</div>
     </div>
     <details>
         <summary>CCP</summary>
@@ -50,8 +43,6 @@
     <div class="menu-button">
         <a href="https://cicwapee.github.io/BATLE/">Сменить бренд</a>
     </div>
-    <a href="item.html" class="download-button">Найти предмет для покупки</a>
-
     <div class="round-info" id="round">Раунд 1</div>
     <h1>batle ccp</h1>
     <div class="container">
@@ -73,34 +64,84 @@
             { src: "https://i.pinimg.com/736x/89/4b/1a/894b1a15eb2d32b1f77e9502a2addda9.jpg", title: "Laser Cut Derby" },
             { src: "https://i.pinimg.com/736x/fa/0a/d0/fa0ad0b66b07b72e0c361fcaa8ae4d8b.jpg", title: "lace-up derbies - LECLAIREUR" },
             { src: "https://i.pinimg.com/736x/47/e8/d7/47e8d7919fe3fddea9fca4c918ec4813.jpg", title: "Green Laced Boots" },
-            { src: "https://i.pinimg.com/736x/0c/25/43/0c2543ad5eea0dbb4aee5e60c5f6944d.jpg", title: "Object Dyed Drip Rubber Sneaker" }
+            { src: "https://i.pinimg.com/736x/0c/25/43/0c2543ad5eea0dbb4aee5e60c5f6944d.jpg", title: "Object Dyed Drip Rubber Sneaker" },
+            { src: "https://i.pinimg.com/736x/19/5f/40/195f40d8ba626afb22ff9f11988deccb.jpg", title: "fencing jacket ccp" },
+            { src: "https://i.pinimg.com/736x/5c/fc/60/5cfc605ad4bf0a5d076886ffc8d49c7f.jpg", title: "Navy Zipped Leather Jacket" },
+            { src: "https://i.pinimg.com/736x/7e/79/0c/7e790c0402cbf6a662b9f33ca3568cc2.jpg", title: "Sircle Seam Detailed Cotton Jeans W" },
+            { src: "https://i.pinimg.com/736x/b8/f2/1d/b8f21dd8d9901086e19697f6d2d5a24f.jpg", title: "LEGO SOLE LEATHER BOOTS" },
+            { src: "https://i.pinimg.com/736x/29/07/45/290745c0f4e5d54ad0c99dbfab7f9fd0.jpg", title: "U-Jack Prosthetic Sneaker" },
+            { src: "https://i.pinimg.com/736x/26/e8/76/26e8761909d224817f82ef7162a01e96.jpg", title: "Dyed Stained 9 Finger Sifter Hands" },
+            { src: "https://i.pinimg.com/736x/79/19/81/7919814fcee34c431316d8c702e76c4a.jpg", title: "Leather Disparate Gloves" },
+            { src: "https://i.pinimg.com/736x/42/12/24/421224b47610bac14248a9724b6972fc.jpg", title: "Sircle Seam Detailed Cotton Jeans B" },
+            { src: "https://i.pinimg.com/564x/8b/1f/ab/8b1fabc93a25cb62f09728e7e5cdd246.jpg", title: "bag pig ccp" },
+            { src: "https://i.pinimg.com/736x/53/a4/cc/53a4cc27f40fe46c255e0f42e87f7513.jpg", title: "Teeth Pendant Necklace ccp" },
+            { src: "https://i.pinimg.com/736x/da/ce/5f/dace5ff593e32c0c042b5bd6f6701d18.jpg", title: "Eyeball Rings" },
+            { src: "https://i.pinimg.com/736x/2a/c6/3b/2ac63b1bc6ec0f7051c43b0f5dc3f9bf.jpg", title: "eye necklace" },
+            { src: "https://i.pinimg.com/736x/d7/41/77/d74177767e321d81118a92b0cff96d2d.jpg", title: "Dyed Glove Sleeve Leather Jacket" },
+            { src: "https://i.pinimg.com/736x/60/74/62/607462f2e871e579a6ad58035f9c8628.jpg", title: "LITTLE COIN PURSE DIPPED IN LATEX" },
+            { src: "https://i.pinimg.com/736x/a3/f4/58/a3f45864c33f7022cd704f5cf6f007a7.jpg", title: "Lined Rubber Drip Diagonal Zip Goodyear Boot" },
+            { src: "https://i.pinimg.com/736x/6e/30/52/6e3052412f16c4f90b1ea29fa3ff8264.jpg", title: "Scarpe Oxford" },
+            { src: "https://i.pinimg.com/736x/18/3e/32/183e32294517ddb3300788e954cb87d3.jpg", title: "blue sneakers AM" },
+            { src: "https://i.pinimg.com/736x/cd/19/1f/cd191f7efc2bf9307243f59ee29a44d8.jpg", title: "Leather Jacket ccp" },
+            
         ];
 
         let currentChampion = images.splice(Math.floor(Math.random() * images.length), 1)[0];
         let round = 1;
 
         const phrases = [
-            "Неплохой выбор!",
-            "Это частый выбор!",
-            "Отличный вкус!"
+            "необычный вариант.",
+            "необычный вариант.",
+            "необычный вариант.",
+            "необычный вариант.",
+            "необычный вариант.",
+            "необычный вариант.",
+            ":0",
+            ":0",
+            ":0",
+            ":0",
+            ":0",
+            "Отличный вкус.....",
+            "Отличный вкус.....",
+            "Отличный вкус.....",
+            "Отличный вкус.....",
+            "довольно мрачно выглядит.",
+            "довольно мрачно выглядит.",
+            "довольно мрачно выглядит.",
+            "довольно мрачно выглядит.",
+            "довольно мрачно выглядит.",
+            "довольно мрачно выглядит.",
+            "довольно мрачно выглядит.",
+            "ты смотрел видео справа?...",
+            "ты смотрел видео справа?...",
+            "ты смотрел видео справа?...",
+            "довольно мрачно выглядит."
         ];
 
         function nextChallenger() {
             if (images.length === 0) {
-                let randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
-                document.body.innerHTML = `<div class='winner'>
-                                            <h1>Твой выбор!</h1>
-                                            <img src="${currentChampion.src}" alt="Победитель" style="width: 500px; height: 500px; transition: all 0.3s ease;">
-                                            <div class="phrase">${randomPhrase}</div>
-                                            <a href="https://cicwapee.github.io/BATLE/" class="winner-link">вернуться назад</a>
-                                            </div>`;
-                confetti({
-                    particleCount: 100,
-                    spread: 100,
-                    origin: { y: 0.6 }
-                });
-                return;
-            }
+    let randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+    document.body.innerHTML = `<div class='winner'>
+                                <h1>Твой выбор!</h1>
+                                <h2>${currentChampion.title}</h2> <!-- Добавлено название победителя -->
+                                <img src="${currentChampion.src}" alt="Победитель" style="width: 500px; height: 500px; transition: all 0.3s ease;">
+                                <div class="phrase">${randomPhrase}</div>
+                                <a href="https://cicwapee.github.io/BATLE/" class="winner-link">вернуться назад ⮌</a>
+                                <a href="item.html" class="download-button">Найти предмет для покупки</a>
+                                <a href="https://cicwapee.github.io/CCP-/" class="winner-link"> пройти заново </a>
+                                <div class="video-container">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/b5gAu71LZ7A?start=14" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                              </div>`;
+    
+    confetti({
+        particleCount: 100,
+        spread: 100,
+        origin: { y: 0.6 }
+    });
+    return;
+}
+
             let challenger = images.splice(Math.floor(Math.random() * images.length), 1)[0];
             document.getElementById("img1").src = currentChampion.src;
             document.getElementById("img2").src = challenger.src;
