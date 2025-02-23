@@ -1,84 +1,345 @@
+    h1 {
+        font-size: 2.5em;
+    }
+
+    .round-info {
+        position: absolute;
+        top: 10px;
+        left: 20px;
+        font-size: 1.5em;
+    }
+
+    .container { 
+        display: flex; 
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin-top: 30px; 
+    }
+
+    .images {
+        display: flex;
+        gap: 40px;
+    }
+
+    .image-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+    }
+    
+    .image-title {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+        font-weight: 300;
+        font-family: Trattatello, fantasy;
+        position: relative;
+        transition: transform 0.3s ease, font-size 0.3s ease;
+    }
+    
+    .image {
+        width: 400px;
+        height: 400px;
+        cursor: pointer;
+        border: 5px solid transparent;
+        border-radius: 15px;
+        transition: transform 0.3s ease, border-color 0.3s ease, opacity 0.5s ease;
+        box-shadow: 0 0 20px #4f5e4f;
+    }
+    
+    /* При наведении на изображение увеличивается и оно, и заголовок */
+    .image:hover {
+        border-color: #245224;
+        transform: scale(1.1);
+        box-shadow: 0 0 30px #336833;
+    }
+    
+    .image-container:hover .image-title {
+        transform: scale(1.1) translateY(-10px);
+        font-size: 1.4em;
+    }
+    
+    
+
+    .fade-out {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    .winner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+    }
+
+    .winner img {
+        width: 300px; /* Фиксированная ширина */
+        height: 300px; /* Фиксированная высота */
+        border-radius: 20px;
+        box-shadow: 0 4px 15px rgba(30, 85, 88, 0.8);
+        margin-top: 20px;
+        object-fit: cover; /* Сохраняем пропорции изображения */
+    }
+
+    .phrase {
+        font-size: 1.5em;
+        margin-top: 20px;
+        font-weight: normal;
+    }
+
+    .winner-link {
+        margin-top: 20px;
+        font-size: 1.2em;
+        width: 300px;
+        height: 80px;
+        border-radius: 10px;
+        color: #992f4f;
+        text-decoration: none;
+    }
+
+    .winner-link:hover {
+        text-decoration: underline;
+    }
+    img {
+        cursor: url('https://i.postimg.cc/5N4ZhKVR/image-1.png') 16 16, auto !important;
+    }
+    
+
+   /* Подключение шрифта Coolsville */
+@import url('https://fonts.googleapis.com/css2?family=Coolsville&display=swap');
+
 body { 
-    font-family: cursive, Arial, sans-serif; 
+    font-family: 'cursive', 'Comic Sans MS', sans-serif; 
     font-size: 20px;
     font-weight: bold;
     text-align: center;
     margin: 0;
     padding: 20px;
-    background: linear-gradient(to right, #1e1e1e, #3a3a3a); 
+    background: linear-gradient(to right, #1a1a1a, #253f47, #1a1a1a); 
     color: white;
+    position: relative;
+    overflow: hidden;
 }
 
-h1 {
-    font-size: 2.5em;
+/* Фоновая надпись с зелёным свечением */
+.background-text {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 7.5vw;
+    font-weight: bold;
+    font-family: 'MS Sans Serif', sans-serif;
+    color: white;
+    opacity: 0.2;
+    user-select: none;
+    white-space: nowrap;
+    z-index: -2;
+    text-shadow: 0 0 15px rgba(0, 100, 0, 0.8); /* Тёмно-зелёное свечение */
+    animation: melting 6s infinite alternate ease-in-out;
 }
 
-.round-info {
-    position: absolute;
-    top: 10px;
-    left: 20px;
-    font-size: 1.5em;
-}
-
-.container { 
-    display: flex; 
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    margin-top: 30px; 
-}
-
-.images {
-    display: flex;
-    gap: 40px;
-}
-
-.image-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
+/* Поднятые имена картинок со шрифтом fantasy */
 .image-title {
     font-size: 1.2em;
     margin-bottom: 10px;
-    font-weight: bold;
+    font-weight: 300;
+    font-family: Trattatello, fantasy; /* Новый шрифт */
+    position: relative;
+    top: -10px; /* Поднимаем текст выше */
 }
 
-.image { 
-    width: 300px; 
-    height: 300px; 
-    cursor: pointer; 
-    border: 5px solid transparent; 
-    border-radius: 15px;
-    transition: transform 0.3s ease, border-color 0.3s ease, opacity 0.5s ease;
-    box-shadow: 0 4px 10px rgba(138, 43, 226, 0.5);
+/* Анимация таяния */
+@keyframes melting {
+    0% {
+        opacity: 0.3;
+        transform: translate(-50%, -50%) scale(1.02);
+        filter: blur(5px);
+    }
+    50% {
+        opacity: 0.1;
+        transform: translate(-50%, -48%) scale(1.02);
+        filter: blur(4px);
+    }
+    100% {
+        opacity: 0.03;
+        transform: translate(-50%, -46%) scale(1.02);
+        filter: blur(5px);
+    }
 }
 
-.image:hover { 
-    border-color: #51148a; 
-    transform: scale(1.1);
-}
 
-.fade-out {
-    opacity: 0;
-    transform: scale(0.8);
-}
-
-.winner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    text-align: center;
-}
-
-.winner img {
-    width: 300px; /* Фиксированная ширина */
-    height: 300px; /* Фиксированная высота */
-    border-radius: 20px;
-    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.8);
-    margin-top: 20px;
-    object-fit: cover; /* Сохраняем пропорции изображения */
-}
+    /* Дождь слева и справа */
+    .rain-left, .rain-right {
+        position: fixed;
+        top: 0;
+        width: 15%; /* Дождь только в узких колонках слева и справа */
+        height: 100vh;
+        pointer-events: none;
+        z-index: -1;
+    }
+    
+    /* Дождь слева */
+    .rain-left {
+        left: 0;
+    }
+    
+    /* Дождь справа */
+    .rain-right {
+        right: 0;
+    }
+    
+    /* Дождинки */
+    .rain-left div, .rain-right div {
+        position: absolute;
+        width: 2px;
+        height: 10px;
+        background: rgba(255, 255, 255, 0.5);
+        opacity: 0.7;
+        animation: fall linear infinite;
+    }
+    
+    @keyframes fall {
+        from {
+            transform: translateY(-100vh);
+        }
+        to {
+            transform: translateY(100vh);
+        }
+    }
+    
+    /* Генерация капель с разными скоростями */
+    @media (min-width: 768px) {
+        .rain-left div:nth-child(1), .rain-right div:nth-child(1) { left: 5%; animation-duration: 0.7s; }
+        .rain-left div:nth-child(2), .rain-right div:nth-child(2) { left: 15%; animation-duration: 1s; }
+        .rain-left div:nth-child(3), .rain-right div:nth-child(3) { left: 25%; animation-duration: 1.2s; }
+        .rain-left div:nth-child(4), .rain-right div:nth-child(4) { left: 35%; animation-duration: 0.9s; }
+        .rain-left div:nth-child(5), .rain-right div:nth-child(5) { left: 45%; animation-duration: 1.1s; }
+        .rain-left div:nth-child(6), .rain-right div:nth-child(6) { left: 55%; animation-duration: 1.3s; }
+        .rain-left div:nth-child(7), .rain-right div:nth-child(7) { left: 65%; animation-duration: 0.8s; }
+        .rain-left div:nth-child(8), .rain-right div:nth-child(8) { left: 75%; animation-duration: 1.5s; }
+        .rain-left div:nth-child(9), .rain-right div:nth-child(9) { left: 85%; animation-duration: 1s; }
+        .rain-left div:nth-child(10), .rain-right div:nth-child(10) { left: 95%; animation-duration: 0.6s; }
+    }
+    
+    /* Мрачная анимация заголовка */
+    h1 {
+        font-size: 2.5em;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        animation: flicker 3s infinite alternate;
+    }
+    
+    @keyframes flicker {
+        0% { opacity: 1; text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); }
+        100% { opacity: 0.8; text-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+    }
+    .back-container {
+        position: fixed;
+        top: 15px;
+        right: 70px;
+        display: flex;
+        align-items: center;
+        gap: 10px; /* Отступ между кнопкой и текстом */
+    }
+    
+    .back-button {
+        width: 50px;
+        height: 50px;
+        background-color: #00320099;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: url('https://i.postimg.cc/5N4ZhKVR/image-1.png') 16 16, auto !important;
+        transition: background-color 0.3s;
+    }
+    
+    .back-button::after {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+        background: transparent;
+    }
+    
+    .back-button:hover {
+        background-color: rgba(0, 80, 0, 0.8);
+    }
+    
+    .back-button svg {
+        width: 30px;
+        height: 30px;
+        fill: white;
+    }
+    
+    .back-text {
+        font-size: 25px;
+        left: 100;
+        color: #2e3a37;
+        font-weight: bold;
+        cursor: url('https://i.postimg.cc/5N4ZhKVR/image-1.png') 16 16, auto !important;
+        user-select: none; /* Чтобы текст нельзя было выделить */
+    }
+    
+    
+    body {
+        cursor: url('https://i.postimg.cc/5N4ZhKVR/image-1.png') 16 16, auto;
+    }
+    .menu-button {
+        position: fixed;
+        top: 95%;
+        right: 10px;
+        transform: translateY(-50%);
+        width: 300px;
+        height: 80px;
+        background-color: #253f47;
+        border-radius: 10px; /* Прямоугольная форма */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: url('https://i.postimg.cc/5N4ZhKVR/image-1.png') 16 16, auto;
+        transition: background-color 0.3s, transform 0.2s;
+        padding: 10px;
+    }
+    
+    .menu-button:hover {
+        background-color: rgba(214, 55, 108, 0.8);
+        transform: translateY(-50%) scale(1.1);
+    }
+    
+    .menu-button a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+    }
+    .download-button {
+        display: inline-block;
+        padding: 10px 40px;
+        width: 160px;
+        position: fixed;
+        top: 82%;
+        right: 10px;
+        background-color: #4CAF50; /* Зеленый фон */
+        color: white; /* Белый текст */
+        text-decoration: none; /* Убирает подчеркивание */
+        font-size: 20px;
+        border-radius: 4px; /* Скругленные углы */
+        transition: transform 0.2s ease, background-color 0.3s;
+    }
+    
+    .download-button:hover {
+        color: rgb(173, 27, 27); /* Белый текст */
+        text-decoration: none; 
+        background-color: #0b1f0c; /* Темнее при наведении */
+        transform: scale(1.1); /* Увеличение */
+    }
+    
+    
