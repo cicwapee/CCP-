@@ -94,11 +94,16 @@
     .winner-link {
         margin-top: 20px;
         font-size: 1.2em;
-        width: 300px;
-        height: 80px;
+        width: 200px;
+        height: 35px;
         border-radius: 10px;
-        color: #992f4f;
+        color: #ffffff;
         text-decoration: none;
+        background-color: #000000;
+        text-decoration: none; /* Убирает подчеркивание */
+        font-size: 20px;
+        border-radius: 4px; /* Скругленные углы */
+        transition: transform 0.2s ease, background-color 0.3s;
     }
 
     .winner-link:hover {
@@ -325,7 +330,7 @@ body {
         padding: 10px 40px;
         width: 160px;
         position: fixed;
-        top: 82%;
+        top: 93%;
         right: 10px;
         background-color: #4CAF50; /* Зеленый фон */
         color: white; /* Белый текст */
@@ -340,6 +345,23 @@ body {
         text-decoration: none; 
         background-color: #0b1f0c; /* Темнее при наведении */
         transform: scale(1.1); /* Увеличение */
+    }
+    .video-container {
+        position: fixed;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 800px;
+        height: 630px;
+        
+        padding: 10px;
+        border-radius: 10px;
+        
+    }
+    .video-container iframe {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
     }
     
     
