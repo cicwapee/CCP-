@@ -4,12 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Царь горы</title>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+Script&display=swap" rel="stylesheet">
     <link href="style.css" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+    <style>
+        .back-button {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .back-button svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+    </style>
 </head>
 <body>
+    <div class="back-container">
+        <div class="back-button" onclick="history.back()">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18l-6-6 6-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        <div class="back-text">Шаг назад</div>
+    </div>
+    <details>
+        <summary>CCP</summary>
+        <p>Что касается человеческого тела, то тут Поэль, напротив, отрицает его как нечто живое.</p>
+    </details>
+    <div class="menu-button">
+        <a href="https://cicwapee.github.io/BATLE/">Сменить бренд</a>
+    </div>
+    <a href="item.html" class="download-button">Найти предмет для покупки</a>
+
     <div class="round-info" id="round">Раунд 1</div>
-    <h1>Выберите победителя!</h1>
+    <h1>batle ccp</h1>
     <div class="container">
         <div class="images">
             <div class="image-container">
@@ -25,23 +69,31 @@
 
     <script>
         let images = [
-            { src: "https://i.pinimg.com/736x/c3/9c/7f/c39c7f59ebd2f113331336a016750121.jpg", title: "Лесной воин" },
-            { src: "https://i.pinimg.com/736x/24/8b/29/248b29ae50a2beae3d903c6046a086c9.jpg", title: "Огненный зверь" },
-            { src: "https://i.pinimg.com/736x/fa/0a/d0/fa0ad0b66b07b72e0c361fcaa8ae4d8b.jpg", title: "Ледяной страж" },
-            { src: "https://i.pinimg.com/736x/47/e8/d7/47e8d7919fe3fddea9fca4c918ec4813.jpg", title: "Грозовой гигант" },
-            { src: "https://i.pinimg.com/736x/0c/25/43/0c2543ad5eea0dbb4aee5e60c5f6944d.jpg", title: "Теневой хищник" }
+            { src: "https://i.pinimg.com/736x/c3/9c/7f/c39c7f59ebd2f113331336a016750121.jpg", title: "Green Buckle Leather Boots" },
+            { src: "https://i.pinimg.com/736x/89/4b/1a/894b1a15eb2d32b1f77e9502a2addda9.jpg", title: "Laser Cut Derby" },
+            { src: "https://i.pinimg.com/736x/fa/0a/d0/fa0ad0b66b07b72e0c361fcaa8ae4d8b.jpg", title: "lace-up derbies - LECLAIREUR" },
+            { src: "https://i.pinimg.com/736x/47/e8/d7/47e8d7919fe3fddea9fca4c918ec4813.jpg", title: "Green Laced Boots" },
+            { src: "https://i.pinimg.com/736x/0c/25/43/0c2543ad5eea0dbb4aee5e60c5f6944d.jpg", title: "Object Dyed Drip Rubber Sneaker" }
         ];
 
         let currentChampion = images.splice(Math.floor(Math.random() * images.length), 1)[0];
         let round = 1;
 
+        const phrases = [
+            "Неплохой выбор!",
+            "Это частый выбор!",
+            "Отличный вкус!"
+        ];
+
         function nextChallenger() {
             if (images.length === 0) {
+                let randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
                 document.body.innerHTML = `<div class='winner'>
-                                            <h1>Царь горы!</h1>
+                                            <h1>Твой выбор!</h1>
                                             <img src="${currentChampion.src}" alt="Победитель" style="width: 500px; height: 500px; transition: all 0.3s ease;">
+                                            <div class="phrase">${randomPhrase}</div>
+                                            <a href="https://cicwapee.github.io/BATLE/" class="winner-link">вернуться назад</a>
                                             </div>`;
-                // Добавляем конфетти
                 confetti({
                     particleCount: 100,
                     spread: 100,
@@ -71,6 +123,19 @@
         }
 
         nextChallenger();
+        document.querySelectorAll("img").forEach(img => {
+            img.style.cursor = "url('https://i.postimg.cc/5N4ZhKVR/image-1.png') 16 16, auto";
+        });
     </script>
+    <div class="rain-left">
+    <div></div><div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div>
+</div>
+
+<div class="rain-right">
+    <div></div><div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div>
+</div>
+<div class="background-text">Carol Christian Poell</div>
 </body>
 </html>
